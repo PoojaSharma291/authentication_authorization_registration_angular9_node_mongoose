@@ -1,0 +1,31 @@
+﻿<p-table [value]="users">
+    <ng-template pTemplate="caption">
+        List of Users
+    </ng-template>
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Username</th>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>Action</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-user>
+        <tr>
+            <td>{{user.username}}</td>
+            <td>{{user.firstName}}</td>
+            <td>{{user.lastName}}</td>
+            <td><a (click)="deleteUser(user.id)" class="text-danger">Delete</a></td>
+        </tr>
+    </ng-template>
+    <!-- <ng-template pTemplate="footer" let-columns>
+        <tr>
+            <td *ngFor="let col of columns">
+                {{col.header}}
+            </td>
+        </tr>
+    </ng-template> -->
+    <ng-template pTemplate="summary">
+        There are {{users?.length}} users
+    </ng-template>
+</p-table>
